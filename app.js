@@ -227,8 +227,11 @@ app.get("/logout", function (req, res) {
     res.redirect("/");
 });
 
-const port = process.env.PORT || 3000;
+let port = process.env.PORT;
+if(port == null || port == "") {
+    port = 3000;
+}
 
 app.listen(port, function () {
-    console.log("Server has started at port 3000.");
+    console.log("Server has started successfully.");
 });
